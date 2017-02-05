@@ -298,6 +298,9 @@ namespace net.nutcore.aliddns
         {
             try
             {
+                localIP.Text = getLocalIP();
+                domainIP.Text = getDomainIP();
+
                 clientProfile = DefaultProfile.GetProfile("cn-hangzhou", accessKeyId.Text, accessKeySecret.Text);
                 client = new DefaultAcsClient(clientProfile);
                 if (setRecordId()) MessageBox.Show("设置正确！");
