@@ -37,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="aliyun-net-sdk-alidns">
-      <HintPath>..\..\..\..\..\C#\toolAlidnsAutocheck\toolAlidnsAutocheck\Alidns\aliyun-net-sdk-alidns.dll</HintPath>
+      <HintPath>aliyun-net-sdk-alidns.dll</HintPath>
     </Reference>
     <Reference Include="aliyun-net-sdk-core">
-      <HintPath>..\..\..\..\..\C#\toolAlidnsAutocheck\toolAlidnsAutocheck\Alidns\aliyun-net-sdk-core.dll</HintPath>
+      <HintPath>aliyun-net-sdk-core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
