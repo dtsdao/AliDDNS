@@ -40,10 +40,15 @@ namespace net.nutcore.aliddns
 
             //Prepare anything we need
             readConfigFile();
-            clientProfile = DefaultProfile.GetProfile("cn-hangzhou", accessKeyId.Text, accessKeySecret.Text);
-            client = new DefaultAcsClient(clientProfile);
-            localIP.Text = getLocalIP();
-            domainIP.Text = getDomainIP();
+
+            try
+            {
+                clientProfile = DefaultProfile.GetProfile("cn-hangzhou", accessKeyId.Text, accessKeySecret.Text);
+                client = new DefaultAcsClient(clientProfile);
+                localIP.Text = getLocalIP();
+                domainIP.Text = getDomainIP();
+            }
+            catch (Exception) { networkStatus.Text = "无网络"; }
         }
 
         private void readConfigFile()
@@ -136,10 +141,10 @@ namespace net.nutcore.aliddns
                 string ip = data[1];
                 return ip;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show("无法连接网络或API地址变动,错误信息：" + e);
-                return null;
+                networkStatus.Text = "无网络";
+                return "0.0.0.0";
             }
         }
 
@@ -198,12 +203,12 @@ namespace net.nutcore.aliddns
             //处理错误
             catch (ServerException e)
             {
-                MessageBox.Show(e.ErrorCode + e.ErrorMessage);
+                MessageBox.Show("Server Exception: " + e.ErrorCode + e.ErrorMessage);
                 return "0.0.0.0";
             }
             catch (ClientException e)
             {
-                MessageBox.Show(e.ErrorCode + e.ErrorMessage);
+                MessageBox.Show("Client Exception: " + e.ErrorCode + e.ErrorMessage);
                 return "0.0.0.0";
             }
         }
@@ -267,12 +272,20 @@ namespace net.nutcore.aliddns
         private void updatePrepare()
         {
             nextUpdateSeconds.Text = newSeconds.Text;
-            domainIP.Text = getDomainIP();
-
-            if (domainIP.Text != localIP.Text)
+            try
             {
-                updateDomainRecord();
+                localIP.Text = getLocalIP();
+                domainIP.Text = getDomainIP();
+
+                if (domainIP.Text != localIP.Text)
+                {
+                    updateDomainRecord();
+                }
+
+                localIP.Text = getLocalIP();
+                domainIP.Text = getDomainIP();
             }
+            catch (Exception) { networkStatus.Text = "无网络"; }
         }
 
         //Events in form
@@ -283,10 +296,14 @@ namespace net.nutcore.aliddns
 
         private void checkConfig_Click(object sender, EventArgs e)
         {
-            clientProfile = DefaultProfile.GetProfile("cn-hangzhou", accessKeyId.Text, accessKeySecret.Text);
-            client = new DefaultAcsClient(clientProfile);
-            if (setRecordId()) MessageBox.Show("设置正确！");
-            if (saveConfigFile()) MessageBox.Show("保存成功！");
+            try
+            {
+                clientProfile = DefaultProfile.GetProfile("cn-hangzhou", accessKeyId.Text, accessKeySecret.Text);
+                client = new DefaultAcsClient(clientProfile);
+                if (setRecordId()) MessageBox.Show("设置正确！");
+                if (saveConfigFile()) MessageBox.Show("保存成功！");
+            }
+            catch (Exception) { networkStatus.Text = "无网络"; }
         }
 
         private void helpPage_Click(object sender, EventArgs e)

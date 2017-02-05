@@ -41,6 +41,7 @@
             this.autoUpdateOff = new System.Windows.Forms.RadioButton();
             this.autoUpdateOn = new System.Windows.Forms.RadioButton();
             this.debugMessage = new System.Windows.Forms.GroupBox();
+            this.recordId = new System.Windows.Forms.TextBox();
             this.globalValue = new System.Windows.Forms.Label();
             this.globalDomainType = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,7 +64,8 @@
             this.personalWebsite = new System.Windows.Forms.LinkLabel();
             this.helpPage = new System.Windows.Forms.Button();
             this.autoUpdateTimer = new System.Windows.Forms.Timer(this.components);
-            this.recordId = new System.Windows.Forms.TextBox();
+            this.networkStatus = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.timeSetGroup.SuspendLayout();
             this.debugMessage.SuspendLayout();
             this.globalSetGroup.SuspendLayout();
@@ -172,6 +174,8 @@
             // 
             // debugMessage
             // 
+            this.debugMessage.Controls.Add(this.label13);
+            this.debugMessage.Controls.Add(this.networkStatus);
             this.debugMessage.Controls.Add(this.recordId);
             this.debugMessage.Controls.Add(this.globalValue);
             this.debugMessage.Controls.Add(this.globalDomainType);
@@ -186,6 +190,14 @@
             this.debugMessage.TabIndex = 5;
             this.debugMessage.TabStop = false;
             this.debugMessage.Text = "调试信息";
+            // 
+            // recordId
+            // 
+            this.recordId.Location = new System.Drawing.Point(68, 18);
+            this.recordId.Name = "recordId";
+            this.recordId.Size = new System.Drawing.Size(94, 21);
+            this.recordId.TabIndex = 8;
+            this.recordId.Text = "<null>";
             // 
             // globalValue
             // 
@@ -394,13 +406,24 @@
             this.autoUpdateTimer.Interval = 1000;
             this.autoUpdateTimer.Tick += new System.EventHandler(this.autoUpdateTimer_Tick);
             // 
-            // recordId
+            // networkStatus
             // 
-            this.recordId.Location = new System.Drawing.Point(68, 18);
-            this.recordId.Name = "recordId";
-            this.recordId.Size = new System.Drawing.Size(94, 21);
-            this.recordId.TabIndex = 8;
-            this.recordId.Text = "<null>";
+            this.networkStatus.AutoSize = true;
+            this.networkStatus.Location = new System.Drawing.Point(68, 77);
+            this.networkStatus.Name = "networkStatus";
+            this.networkStatus.Size = new System.Drawing.Size(41, 12);
+            this.networkStatus.TabIndex = 9;
+            this.networkStatus.Text = "已连接";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(7, 92);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(155, 12);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "出错请手动修改config.xml!";
             // 
             // mainForm
             // 
@@ -469,6 +492,8 @@
         private System.Windows.Forms.Label globalDomainType;
         private System.Windows.Forms.Label globalValue;
         private System.Windows.Forms.TextBox recordId;
+        private System.Windows.Forms.Label networkStatus;
+        private System.Windows.Forms.Label label13;
     }
 }
 
