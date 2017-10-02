@@ -128,7 +128,7 @@ namespace net.nutcore.aliddns
         {
             try
             {
-                string strUrl = "http://1212.ip138.com/ic.asp";
+                string strUrl = "http://whatismyip.akamai.com/";
                 Uri uri = new Uri(strUrl);
                 WebRequest webreq = WebRequest.Create(uri);
                 Stream s = webreq.GetResponse().GetResponseStream();
@@ -136,9 +136,12 @@ namespace net.nutcore.aliddns
                 string all = sr.ReadToEnd();
 
                 //Cut the string
+                /*
                 string[] symbols = new string[2] { "[", "]" };
                 string[] data = all.Split(symbols, 30, StringSplitOptions.RemoveEmptyEntries);
                 string ip = data[1];
+                */
+                string ip = all;
                 return ip;
             }
             catch (Exception)
