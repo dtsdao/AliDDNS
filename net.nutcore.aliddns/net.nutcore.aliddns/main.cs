@@ -38,6 +38,12 @@ namespace net.nutcore.aliddns
                 MessageBox.Show("文件错误！信息：" + error);
             }
 
+            try
+            {
+                localIP.Text = getLocalIP();
+            }
+            catch (Exception) { networkStatus.Text = "无网络"; }
+
             //Prepare anything we need
             readConfigFile();
 
@@ -45,7 +51,6 @@ namespace net.nutcore.aliddns
             {
                 clientProfile = DefaultProfile.GetProfile("cn-hangzhou", accessKeyId.Text, accessKeySecret.Text);
                 client = new DefaultAcsClient(clientProfile);
-                localIP.Text = getLocalIP();
                 domainIP.Text = getDomainIP();
             }
             catch (Exception) { networkStatus.Text = "无网络"; }
