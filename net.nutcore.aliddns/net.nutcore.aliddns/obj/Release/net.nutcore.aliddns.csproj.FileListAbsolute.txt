@@ -1,0 +1,10 @@
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\bin\Release\AliDDNS.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\bin\Release\AliDDNS.exe
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\bin\Release\AliDDNS.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\bin\Release\aliyun-net-sdk-alidns.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\bin\Release\aliyun-net-sdk-core.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\obj\Release\net.nutcore.aliddns.mainForm.resources
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\obj\Release\net.nutcore.aliddns.Properties.Resources.resources
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\obj\Release\net.nutcore.aliddns.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\obj\Release\AliDDNS.exe
+C:\Users\Administrator\Documents\Visual Studio 2015\Source\Repos\AliDDNS\net.nutcore.aliddns\net.nutcore.aliddns\obj\Release\AliDDNS.pdb
