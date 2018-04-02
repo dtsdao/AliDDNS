@@ -21,6 +21,8 @@ namespace net.nutcore.aliddns
         public mainForm()
         {
             InitializeComponent();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void mainForm_Load(object sender, EventArgs e)
@@ -347,6 +349,34 @@ namespace net.nutcore.aliddns
             {
                 MessageBox.Show("请检查设置中的秒数是否为整数！错误信息：" + error);
             }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Show(); //窗体显示
+                this.WindowState = FormWindowState.Normal; //窗体正常化
+                this.ShowInTaskbar = true; //从状态栏显示
+            }
+            else if (this.WindowState == FormWindowState.Normal)
+            {
+                this.ShowInTaskbar = false; //从状态栏清除
+                this.WindowState = FormWindowState.Minimized; //窗体最小化
+                this.Hide(); //窗体隐藏
+            }
+        }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true; //取消关闭窗体
+            this.WindowState = FormWindowState.Minimized; //窗体最小化
+            this.Hide(); //窗体隐藏
         }
     }
 }

@@ -41,6 +41,8 @@
             this.autoUpdateOff = new System.Windows.Forms.RadioButton();
             this.autoUpdateOn = new System.Windows.Forms.RadioButton();
             this.debugMessage = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.networkStatus = new System.Windows.Forms.Label();
             this.recordId = new System.Windows.Forms.TextBox();
             this.globalValue = new System.Windows.Forms.Label();
             this.globalDomainType = new System.Windows.Forms.Label();
@@ -64,12 +66,14 @@
             this.personalWebsite = new System.Windows.Forms.LinkLabel();
             this.helpPage = new System.Windows.Forms.Button();
             this.autoUpdateTimer = new System.Windows.Forms.Timer(this.components);
-            this.networkStatus = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.timeSetGroup.SuspendLayout();
             this.debugMessage.SuspendLayout();
             this.globalSetGroup.SuspendLayout();
             this.authorInformation.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -190,6 +194,25 @@
             this.debugMessage.TabIndex = 5;
             this.debugMessage.TabStop = false;
             this.debugMessage.Text = "调试信息";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(7, 92);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(155, 12);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "出错请手动修改config.xml!";
+            // 
+            // networkStatus
+            // 
+            this.networkStatus.AutoSize = true;
+            this.networkStatus.Location = new System.Drawing.Point(68, 77);
+            this.networkStatus.Name = "networkStatus";
+            this.networkStatus.Size = new System.Drawing.Size(41, 12);
+            this.networkStatus.TabIndex = 9;
+            this.networkStatus.Text = "已连接";
             // 
             // recordId
             // 
@@ -406,24 +429,27 @@
             this.autoUpdateTimer.Interval = 1000;
             this.autoUpdateTimer.Tick += new System.EventHandler(this.autoUpdateTimer_Tick);
             // 
-            // networkStatus
+            // notifyIcon1
             // 
-            this.networkStatus.AutoSize = true;
-            this.networkStatus.Location = new System.Drawing.Point(68, 77);
-            this.networkStatus.Name = "networkStatus";
-            this.networkStatus.Size = new System.Drawing.Size(41, 12);
-            this.networkStatus.TabIndex = 9;
-            this.networkStatus.Text = "已连接";
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "AliDDNS Tray";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // label13
+            // contextMenuStrip1
             // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(7, 92);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 12);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "出错请手动修改config.xml!";
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem1.Text = "退出";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // mainForm
             // 
@@ -442,6 +468,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
             this.Text = "Aliddns - By DTSDAO";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.timeSetGroup.ResumeLayout(false);
             this.timeSetGroup.PerformLayout();
@@ -451,6 +478,7 @@
             this.globalSetGroup.PerformLayout();
             this.authorInformation.ResumeLayout(false);
             this.authorInformation.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,6 +522,9 @@
         private System.Windows.Forms.TextBox recordId;
         private System.Windows.Forms.Label networkStatus;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 
